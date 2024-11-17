@@ -1,57 +1,111 @@
-* {
-  box-sizing: border-box;
-}
+.hero {
+  container-type: inline-size;
+  container-name: hero;
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-  padding: 2rem;
-  font-family: $font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
-}
+  &__content {
+      display: grid;
+      gap: 2rem;
+      padding: 2rem;
+  }
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+  &__title {
+      font-size: clamp(2rem, 5cqi, 4rem);
+      text-align: center;
+  }
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+  &__text {
+      text-align: center;
+  }
 
-  @media (min-width: $mqMinWidth) {
-    max-width: none;
+  .magazine-layout {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 2rem;
+      padding: 2rem 0;
+
+      &__header {
+          grid-column: 1 / 13;
+          
+          @media (min-width: 1024px) {
+              grid-column: 1 / 7;
+              grid-row: 1; // Explícitamente definimos que empiece en la primera fila
+          }
+      }
+      
+  
+      &__title {
+          grid-column: 1 / 13;
+          
+          @media (min-width: 1024px) {
+              grid-column: 1 / 7;
+              grid-row: 1; // Lo movemos a la primera fila también
+              margin-top: 2rem; // Añadimos un pequeño margen desde el header
+          }
+      
+          h1 {
+              font-size: 2.3rem;
+              font-weight: 500;
+              line-height: 1.2;
+              margin-bottom: 1rem;
+          }
+      }
+  
+      &__image {
+          grid-column: 1 / 13;
+          position: relative;
+          
+          @media (min-width: 1024px) {
+              grid-column: 7 / 13;
+              grid-row: 1 / span 5;
+          }
+      
+          img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+  
+          .stream-button {
+              position: absolute;
+              bottom: 0;           // Ajustado a 0 para que esté completamente en la esquina
+              right: 0;            // Ajustado a 0 para que esté completamente en la esquina
+              background: #ff0000; // Color rojo
+              color: white;        // Texto blanco
+              padding: 0.5rem 2rem;// Padding más amplio
+              font-size: 0.9rem;   
+              border-radius: 0;    // Sin border radius
+              border: none;        // Sin borde
+              text-transform: uppercase; // Texto en mayúsculas
+              
+              &:hover {
+                  background: darken(#ff0000, 10%);
+              }
+          }
+          
+      }
+  
+      &__content {
+          grid-column: 1 / 13;
+          
+          @media (min-width: 1024px) {
+              grid-column: 1 / 4; // Mantenemos que llegue hasta la imagen
+              grid-row: 3 / span 3; // Añadimos esto para que ocupe hasta abajo
+              
+              .body-text {
+                  margin-bottom: 0; // Eliminamos el margen inferior
+              }
+
+              .lead {
+                  font-weight: bold;
+                  font-size: 1rem;
+              }
+          }
+      }
   }
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: $uoc-corporate;
-
-  @media (min-width: $mqMinWidth) {
-    font-size: 36px;
+@container hero (min-width: 1024px) {
+  .hero__content {
+      grid-template-columns: repeat(2, 1fr);
   }
-}
-
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  text-align: center;
 }

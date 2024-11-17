@@ -1,30 +1,19 @@
-/**
- * Use this file to import partials.
- * Do not include SCSS code in this file.
- */
-
-/**
- * Import variables
- */
-
+// Importa las variables y personalizaciones antes de Bootstrap
 @import "variables";
+@import "custom";
 
-/**
- * Import npm dependencies
- * see: https://v2.parceljs.org/features/module-resolution/
- * see commented examples below
- */
 
-// @import "some-node-module";
-// @import "@some-company/some-node-module";
 
-/**
- * Import layouts
- * It's a best practice to use a different partial for each page
- */
-
+// Componentes personalizados
 @import "layouts/home";
+@import "layouts/speakers";
+@import "layouts/article";
+@import "layouts/contact";
+@import "components/navbar";
+@import "components/card";
+@import "components/button";
+@import "components/alert";
 
-/**
- * Do NOT include anything else in this file!
- */
+
+// Importa Bootstrap después de definir las variables
+@import "bootstrap/scss/bootstrap.scss";

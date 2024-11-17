@@ -1,21 +1,48 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="./assets/styles/main.scss" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <include src="./views/navbar.html"></include>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <title>UOC Boilerplate</title>
-  </head>
-  <body>
-    <div class="uoc-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Universitat Oberta de Catalunya" class="uoc-logo" />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC!</h1>
-    </div>
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="container">
+            <div class="magazine-layout">
+                <div class="magazine-layout__header">
+                    <span class="badge bg-dark">CIBERSECURTY</span>
+                </div>
+                
+                <div class="magazine-layout__title">
+                    <h1 class="display-2">Las jornadas de ciberseguirdad creadas por el alumnado en la Universitat Oberta de Catalunya</h1>
+                </div>
+    
+                <div class="magazine-layout__image">
+                    <img src="./assets/images/ciber4.png" alt="Hero image" class="img-fluid">
+                    <button class="btn btn-light btn-sm stream-button">
+                        <i class="bi bi-play-circle"></i>
+                        More Info
+                    </button>
+                </div>
+    
+                <div class="magazine-layout__content">
+                    <p class="lead">Descubriendo nuevas soluciones</p>
+                    <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum faucibus massa ac laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum faucibus massa ac laoreet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <include src="./views/footer.html"></include>
+
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
-  </body>
+</body>
 </html>

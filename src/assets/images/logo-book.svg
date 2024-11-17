@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.73 63.32">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #020202;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3, .cls-6, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-7 {
+        fill: #1d1d1b;
+        font-family: Inter24pt-SemiBold, 'Inter 24pt';
+        font-size: 32.13px;
+        font-weight: 600;
+      }
+
+      .cls-3 {
+        stroke-width: .25px;
+      }
+
+      .cls-3, .cls-6, .cls-4, .cls-5 {
+        stroke: #1d1d1b;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke-width: .5px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa_1">
+    <polyline class="cls-5" points="29.48 15.5 33.25 12.54 35.64 10.92 7.56 .54 4.95 1.79 .66 4.61"/>
+    <polyline class="cls-5" points="29.61 58.72 35.95 53.28 35.95 10.85"/>
+    <polyline class="cls-3" points="5.46 1.55 33.84 12.1 34 54.81"/>
+    <polyline class="cls-3" points="4.71 1.75 33.51 12.42 33.65 55.15"/>
+    <polyline class="cls-2" points="4.72 2.09 33.41 12.72 33.47 55.81"/>
+    <polyline class="cls-3" points="5.8 1.23 34.18 11.78 34.44 54.37"/>
+    <line class="cls-3" x1="6.47" y1=".99" x2="34.94" y2="11.5"/>
+    <polyline class="cls-3" points="4.12 1.99 33.04 12.66 33.04 55.51"/>
+    <polyline class="cls-3" points="6.95 .84 35.42 11.34 35.65 53.65"/>
+    <line class="cls-3" x1="34.94" y1="11.64" x2="35.11" y2="54.64"/>
+    <line class="cls-3" x1="34.48" y1="11.78" x2="34.82" y2="54.07"/>
+    <polygon class="cls-6" points=".79 4.74 .79 45.98 29.48 58.53 29.48 15.5 .79 4.74"/>
+    <polyline class="cls-3" points="2.71 3.53 31.25 14.1 31.41 56.9"/>
+    <polyline class="cls-3" points="1.8 3.78 30.59 14.45 30.73 57.18"/>
+    <polyline class="cls-3" points="1.46 4.26 30.15 14.89 30.2 57.98"/>
+    <polyline class="cls-3" points="3.07 3.22 31.65 13.8 31.91 56.48"/>
+    <line class="cls-3" x1="3.62" y1="2.99" x2="32.09" y2="13.6"/>
+    <polyline class="cls-4" points=".79 4.55 29.71 15.22 29.71 58.07"/>
+    <polyline class="cls-3" points="3.89 2.74 32.48 13.28 32.7 55.71"/>
+    <line class="cls-4" x1="30.57" y1="14.51" x2="30.73" y2="57.18"/>
+    <line class="cls-3" x1="32.01" y1="13.81" x2="32.35" y2="56.11"/>
+    <line class="cls-3" x1="3.76" y1="2.34" x2="32.67" y2="13.01"/>
+    <g>
+      <path class="cls-1" d="M22.41,38.86c1.28.3,2.06,1.77,1.74,3.3s-1.62,2.53-2.9,2.23-2.06-1.77-1.74-3.3,1.62-2.53,2.9-2.23"/>
+      <path class="cls-1" d="M22.5,38.86c.35.8.45,1.09.5,2.15.08,1.68-.97,3.16-1.26,3.44"/>
+      <path class="cls-1" d="M20.28,39.59c1.14-.29,1.98.72,2.61.89.56.15.75-.22.86-.71"/>
+      <path class="cls-1" d="M19.45,41.56c.66-.22,1.6-.35,2.75-.18.82.12,1.49.4,1.98.68"/>
+      <path class="cls-1" d="M19.79,43.24c.89-.12,1.46-.28,1.9-.65.37-.3.91-.32,1.22-.05.12.11.25.31.32.53.04.11.09.28.06.51-.02.13-.09.21-.11.28"/>
+    </g>
+    <text class="cls-7" transform="translate(5.73 40.02) rotate(3.02) scale(.78 1) skewX(-.04)"><tspan x="0" y="0">b</tspan></text>
+  </g>
+</svg>
