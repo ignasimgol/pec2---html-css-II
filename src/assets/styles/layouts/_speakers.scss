@@ -1,0 +1,127 @@
+@import "../variables";
+
+.speakers-container {
+    container-type: inline-size;
+    container-name: speakers;
+}
+
+.speakers {
+    padding: 2rem 0;
+
+    &__title {
+        color: $text-color;
+        text-align: center;
+        margin-bottom: 3rem;
+
+        // Aplicando pseudoclase :is() para los títulos de la sección
+        &:is(.highlighted, .important) {
+            color: $primary-color; // Cambia el color si tiene clases específicas
+            font-weight: bold;
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        max-width: 1200px; // Añadido para controlar el ancho máximo
+        margin: 0 auto; // Centrar el grid
+        
+        @container speakers (min-width: 600px) {
+            gap: 1.5rem;
+        }
+        
+        @container speakers (min-width: 900px) {
+            gap: 2rem;
+            justify-content: space-between; // Distribuir el espacio uniformemente
+        }
+
+        // Uso de :has() para aplicar estilos si contiene al menos un .speakers__card con la clase .featured
+        &:has(.speakers__card.featured) {
+            background-color: $highlight-bg;
+            padding: 2rem;
+            border-radius: 0.5rem;
+        }
+    }
+
+    &__card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        transition: transform 0.3s ease;
+        background-color: $off-white;
+        border: none;
+        border-radius: 0.5rem; // Estilo Bootstrap
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+        @container speakers (min-width: 600px) {
+            flex: 0 1 calc(50% - 1rem);
+            max-width: calc(50% - 1rem);
+        }
+        
+        @container speakers (min-width: 900px) {
+            flex: 0 1 calc(33.33% - 1.5rem);
+            max-width: calc(33.33% - 1.5rem);
+            margin-bottom: 2rem; // Asegurar espacio entre filas
+        }
+
+        // Uso de :is() para seleccionar múltiples elementos con diferentes clases
+        &:is(.highlighted, .featured) {
+            border: 2px solid $primary-color;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 0.5rem; // Estilo Bootstrap
+        border-top-right-radius: 0.5rem;
+
+        // Aplicar un efecto si la tarjeta principal tiene una imagen destacada
+        &:has(.speakers__card.featured &.important) {
+            border: 3px solid $secondary-color;
+        }
+    }
+
+    &__content {
+        padding: 1.5rem;
+
+        // Uso de :has() para aplicar estilos si contiene un enlace específico
+        &:has(a.external-link) {
+            background-color: $light-gray;
+            padding: 1.8rem;
+            border: 1px dashed $dark-gray;
+        }
+    }
+
+    &__name {
+        color: $primary-color;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500; // Estilo Bootstrap
+
+        // Uso de :is() para estilizar elementos con variantes de texto
+        &:is(.uppercase, .bold) {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+
+    &__description {
+        color: $dark-gray;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0; // Estilo Bootstrap
+
+        // Cambiar el color si el padre tiene una clase específica
+        &:has(.highlight) {
+            color: $accent-color;
+        }
+    }
+}
