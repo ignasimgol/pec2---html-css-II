@@ -1,11 +1,25 @@
 @import "../variables";
 
+body {
+    container-type: inline-size;
+    container-name: body;
+}
+
+
 .article-container {
     container-type: inline-size;
     container-name: article;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    width: 100%;
+    padding: 2rem; 
+}
+
+@container body (min-width: 768px) {
+    .article-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
 }
 
 .article {
@@ -14,10 +28,32 @@
         text-align: center;
     }
 
+    &__hero {
+        background-image: url('../images/art1.jpg'); 
+        background-size: cover;
+        background-position: center;
+        padding: 6rem 0;
+        margin: -2rem calc(-50vw + 50%) 2rem; 
+        width: 100vw;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); 
+        }
+    }
+
     &__title {
-        color: $text-color;
+        color: $off-white; 
         font-size: 2.5rem;
         margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
 
         @container article (max-width: 600px) {
             font-size: 2rem;
@@ -25,7 +61,7 @@
     }
 
     &__meta {
-        color: $dark-gray;
+        color: $off-white;
         font-size: 0.9rem;
     }
 
@@ -35,21 +71,49 @@
         }
     }
 
+    &__lead-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        max-width: 100%;
+
+        @container article (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
+
     &__lead {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         line-height: 1.6;
         color: $dark-gray;
-        margin-bottom: 2rem;
+        margin: 0;
+
+        &--highlight {
+            font-size: 1.3rem; 
+            color: $primary-color;
+            font-weight: 600;
+            line-height: 2.5; 
+
+            @container article (max-width: 768px) {
+                font-size: 1.4rem;
+            }
+        }
+
+        @container article (max-width: 480px) {
+            font-size: 1rem;
+        }
     }
 
     &__image {
         height: auto;
-        max-width: 300px;
+        max-width: 600px;
         border-radius: 0.5rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         
         @container article (max-width: 600px) {
-            width: 50% !important; // Sobrescribe la clase w-75 de Bootstrap en móviles
+            width: 70% !important; 
         }
     }
 
@@ -79,27 +143,80 @@
     &__list {
         list-style: none;
         padding-left: 0;
-        margin: 1rem 0;
+        counter-reset: item-counter;
+        border-top: 1px solid $dark-gray;    
+        border-bottom: 1px solid $dark-gray;  
+        padding-top: 1.5rem;                     
+        padding-bottom: 1.5rem;   
+
+        &-title {
+            color: $primary-color;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        &-text {
+            color: $dark-gray;
+            margin: 0;
+            line-height: 1.6;
+        }
 
         li {
-            padding: 0.5rem 0;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 4rem;
+            margin-bottom: 3rem;
+            counter-increment: item-counter;
+            font-size: 1rem;
+            line-height: 1.6;
 
-            &:before {
-                content: "•";
-                color: $primary-color;
+            &::before {
+                content: counter(item-counter);
                 position: absolute;
                 left: 0;
+                top: -0.25rem;
+                width: 3rem;
+                height: 3rem;
+                background-color: $light-gray;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary-color;
+                font-weight: 500;
+                font-size: 1.5rem;
+            }
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                left: 1.5rem;
+                top: 6rem;
+                width: 1px;
+                height: 4rem;
+                background-color: $light-gray;
             }
         }
 
         &--features {
+            border-top: none;   
+            border-bottom: none; 
+            padding-top: 0;      
+            padding-bottom: 0;
+
             :is(li) {
                 padding-left: 2rem;
+                margin-bottom: 1rem;
                 
-                &:before {
+                &::before {
                     content: "→";
+                    background: none;
+                    width: auto;
+                    height: auto;
+                }
+
+                &::after {
+                    display: none;
                 }
             }
         }
