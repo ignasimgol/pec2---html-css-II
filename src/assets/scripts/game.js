@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Función para mostrar mensaje en la consola
+
     const printToConsole = (message, isCommand = false) => {
         const messageClass = isCommand ? 'game-input' : 'game-output';
         consoleElement.innerHTML += `
@@ -128,14 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
         consoleElement.scrollTop = consoleElement.scrollHeight;
     };
 
-    // Maneja los comandos del juego
+
     const handleCommand = (command) => {
         const args = command.split(' ');
         const mainCommand = args[0].toLowerCase();
         const parameter = args.slice(1).join(' ');
         const currentPhaseCommands = phases[currentPhase];
 
-        // Si el juego está completado, solo permite el comando clear
+
         if (gameCompleted && mainCommand !== 'clear') {
             printToConsole("<span class='game-warning'><i class='bi bi-trophy'></i> ¡Juego completado! Usa 'clear' para reiniciar.</span>");
             return;
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Mensaje inicial
+
     printToConsole(`
         <div class="welcome-message">
             <h4>🖥️ Terminal de Hackeo Ético v2.0</h4>
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `);
 
-    // Inicializar la barra de progreso
+   
     updateProgress(1);
 
     // Event Listeners
