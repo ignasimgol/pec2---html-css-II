@@ -66,17 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         2: {
             help: `<div class="help-content">
-                    <h6 class="text-info">📋 Comandos Disponibles - Nivel 2:</h6>
-                    <ul>
-                        <li><code>help</code> - Muestra esta ayuda</li>
-                        <li><code>search</code> - Busca elementos ocultos</li>
-                        <li><code>unlock [password]</code> - Desbloquea el siguiente nivel</li>
-                        <li><code>clear</code> - Limpia la consola</li>
-                    </ul>
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle"></i> Tip: No todo lo que está oculto es invisible en el código
-                    </div>
-                  </div>`,
+                        <h6 class="text-info">📋 Comandos Disponibles - Nivel 2:</h6>
+                        <ul>
+                            <li><code>help</code> - Muestra esta ayuda</li>
+                            <li><code>search</code> - Busca elementos ocultos</li>
+                            <li><code>unlock [password]</code> - Desbloquea el siguiente nivel</li>
+                            <li><code>clear</code> - Limpia la consola</li>
+                        </ul>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle"></i> Tip: Usa 'unlock' con la contraseña que encuentres
+                        </div>
+                    </div>`,
             search: `<div class="hint-message">
                       <i class="bi bi-eye-slash"></i> Busca elementos ocultos en el DOM...
                       <br>Algunos elementos pueden estar con display: none 👀
@@ -98,34 +98,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li><code>finish [código]</code> - Completa el juego</li>
                         <li><code>clear</code> - Limpia la consola</li>
                     </ul>
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle"></i> Tip: A veces las respuestas están al final del camino
+                    <div class="alert alert-success">
+                        <i class="bi bi-info-circle"></i> Tip: El código final está oculto en el footer de la página
                     </div>
                   </div>`,
+                  
             finish: (code) => {
-                if (code === 'cyber_elite_2024') {
-                    gameCompleted = true;
-                    updateProgress(3);
-                    return `<div class="game-success text-center">
-                            <h5>🎉 ¡Felicitaciones! 🎉</h5>
-                            <p>Has completado el juego. Eres un verdadero hacker ético.</p>
-                            <small>Usa 'clear' para reiniciar el juego</small>
-                           </div>`;
+                    if (code === 'cyber_elite_2024') {
+                        gameCompleted = true;
+                        updateProgress(3);
+                        
+                        return `<div class="game-success text-center">
+                                <h5>🎉 ¡Felicitaciones! 🎉</h5>
+                                <p>Has completado el juego. Eres un verdadero hacker ético.</p>
+                                <small>Usa 'clear' para reiniciar el juego</small>
+                               </div>`;
+                    }
+                    return "<span class='game-error'><i class='bi bi-x-circle'></i> Código final incorrecto. ¡Estás cerca!</span>";
                 }
-                return "<span class='game-error'><i class='bi bi-x-circle'></i> Código final incorrecto. ¡Estás cerca!</span>";
-            }
         }
     };
 
 
     const printToConsole = (message, isCommand = false) => {
         const messageClass = isCommand ? 'game-input' : 'game-output';
-        consoleElement.innerHTML += `
-            <div class="${messageClass}">
-                ${isCommand ? '<span class="prompt">&gt;</span> ' : ''}${message}
-            </div>
-        `;
-        consoleElement.scrollTop = consoleElement.scrollHeight;
+        const messageDiv = document.createElement('div');
+        messageDiv.className = messageClass;
+        consoleElement.appendChild(messageDiv);
+    
+        if (!isCommand) {
+            new Typed(messageDiv, {
+                strings: [message],
+                typeSpeed: 10,
+                showCursor: false,
+                onComplete: () => {
+                    consoleElement.scrollTop = consoleElement.scrollHeight;
+                }
+            });
+        } else {
+            messageDiv.innerHTML = `<span class="prompt">&gt;</span> ${message}`;
+            consoleElement.scrollTop = consoleElement.scrollHeight;
+        }
     };
 
 
@@ -146,14 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 printToConsole(currentPhaseCommands.help);
                 break;
 
-            case 'clear':
-                consoleElement.innerHTML = '';
-                if (gameCompleted) {
-                    currentPhase = 1;
-                    gameCompleted = false;
-                    updateProgress(1);
-                    printToConsole("🔄 Juego reiniciado. Escribe 'help' para comenzar.");
-                }
+                case 'clear':
+                    consoleElement.innerHTML = '';
+                    if (gameCompleted) {
+                        currentPhase = 1;
+                        gameCompleted = false;
+                        updateProgress(1);
+                        
+                        printToConsole("🔄 Juego reiniciado. Escribe 'help' para comenzar.");
+                    }
                 break;
 
             case 'inspect':
@@ -175,6 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'verify':
                 if (currentPhase === 1 && parameter) {
                     printToConsole(currentPhaseCommands.verify(parameter));
+                } else if (currentPhase === 2) {
+                    printToConsole("<span class='game-error'><i class='bi bi-info-circle'></i> En el nivel 2 debes usar 'unlock' en lugar de 'verify'</span>");
                 } else {
                     printToConsole("<span class='game-error'><i class='bi bi-exclamation-triangle'></i> Uso: verify [código]</span>");
                 }
