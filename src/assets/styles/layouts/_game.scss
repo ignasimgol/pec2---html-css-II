@@ -1,0 +1,38 @@
+.game {
+    &__console {
+        @container (min-width: 700px) {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+    }
+
+    &__card {
+        border: none;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        
+        &-header {
+            background: var(--bs-primary);
+            color: white;
+        }
+    }
+
+    &__output {
+        min-height: 300px;
+        max-height: 500px;
+        overflow-y: auto;
+        border-radius: var(--bs-border-radius);
+        font-family: 'Courier New', monospace;
+    }
+
+    &__input-wrapper {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__input {
+        &:focus {
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+        }
+    }
+}
