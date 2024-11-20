@@ -1,0 +1,67 @@
+@import '../variables';
+
+.navbar {
+    // Sombra sutil
+    box-shadow: 0 2px 4px $black-transparent-3;
+    
+    // Altura personalizada
+    padding: 1rem 0;
+
+    // Logo
+    .navbar-brand {
+        font-weight: 500;
+        
+        img {
+            transition: transform 0.3s ease;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    // Enlaces de navegación
+    .nav-link {
+        position: relative;
+        margin: 0 0.5rem;
+        transition: color 0.3s ease;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: $success;
+            transition: width 0.3s ease;
+        }
+
+        &:hover {
+            color: $success !important;
+            
+            &::after {
+                width: 100%;
+            }
+        }
+
+        // Estilo para enlace activo
+        &.active {
+            color: $success !important;
+            
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    // Botón hamburguesa personalizado
+    .navbar-toggler {
+        border-color: rgba($success, 0.5);
+        padding: 0.5rem;
+        
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($success, 0.25);
+        }
+    }
+}
