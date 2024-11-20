@@ -18,16 +18,22 @@
 .game {
     &__terminal {
         backdrop-filter: blur(5px);
-        background-color: rgba(0, 0, 0, 0.8) !important;
-        border: 1px solid rgba(0, 255, 0, 0.2) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+        background-color: $black-transparent !important;
+        border: 1px solid $dark-green !important;
+        box-shadow: 0 0 20px $dark-green-2;
+        transition: none !important; // Elimina cualquier transición
+        
+        &:hover {
+            transform: none !important; // Elimina la transformación en hover
+            box-shadow: 0 0 20px $dark-green-2 !important; // Mantiene la misma sombra
+        }
     }
 
     &__console-output {
         font-family: 'Courier New', monospace;
         height: 400px;
         overflow-y: auto;
-        background: rgba(0, 0, 0, 0.9);
+        background: $black-transparent-2;
         border-radius: 4px;
         
         &::-webkit-scrollbar {
@@ -35,11 +41,11 @@
         }
         
         &::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
+            background: $black-transparent;
         }
         
         &::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 0, 0.5);
+            background: $dark-green;
             border-radius: 4px;
         }
     }
@@ -48,32 +54,38 @@
         .input-group-text,
         .form-control,
         .btn {
-            border-color: rgba(0, 255, 0, 0.2);
+            border-color: $dark-green;
         }
 
         .form-control:focus {
-            box-shadow: 0 0 0 0.25rem rgba(0, 255, 0, 0.25);
+            box-shadow: 0 0 0 0.25rem $dark-green;
         }
     }
 
     &__instructions {
         backdrop-filter: blur(5px);
-        background-color: rgba(0, 0, 0, 0.8);
-        border: 1px solid rgba(0, 255, 0, 0.2);
+        background-color: $light-black;
+        border: 1px solid $dark-green;
+        transition: none !important; // Elimina cualquier transición
+        
+        &:hover {
+            transform: none !important; // Elimina la transformación en hover
+            box-shadow: none !important; // Elimina la sombra en hover
+        }
     }
 }
 
 // Message styles
 .game-success {
-    color: #00ff00;
+    color: $primary-color;
 }
 
 .game-error {
-    color: #ff4444;
+    color: $accent-color;
 }
 
 .game-warning {
-    color: #ffbb33;
+    color: $orange;
 }
 
 .game-input {
@@ -81,7 +93,7 @@
     margin-bottom: 0.5rem;
     
     .prompt {
-        color: #00ff00;
+        color: $fluor;
         margin-right: 0.5rem;
     }
 }
@@ -92,5 +104,5 @@
 
 // Typed.js cursor
 .typed-cursor {
-    color: #00ff00;
+    color: $fluor;
 }

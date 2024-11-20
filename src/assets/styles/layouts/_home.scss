@@ -69,7 +69,7 @@
               position: absolute;
               bottom: 0;           // Ajustado a 0 para que esté completamente en la esquina
               right: 0;            // Ajustado a 0 para que esté completamente en la esquina
-              background: #ff0000; // Color rojo
+              background: $red-pwr; // Color rojo
               color: white;        // Texto blanco
               padding: 0.5rem 2rem;// Padding más amplio
               font-size: 0.9rem;   
@@ -78,30 +78,31 @@
               text-transform: uppercase; // Texto en mayúsculas
               
               &:hover {
-                  background: darken(#ff0000, 10%);
+                  background: darken($red-pwr, 10%);
               }
           }
           
       }
   
-      &__content {
-          grid-column: 1 / 13;
-          
-          @media (min-width: 1024px) {
-              grid-column: 1 / 4; // Mantenemos que llegue hasta la imagen
-              grid-row: 3 / span 3; // Añadimos esto para que ocupe hasta abajo
-              
-              .body-text {
-                  margin-bottom: 0; // Eliminamos el margen inferior
-              }
-
-              .lead {
-                  font-weight: bold;
-                  font-size: 1rem;
-              }
-          }
-      }
-  }
+        &__content {
+            grid-column: 1 / 13;  // Añadir punto y coma aquí
+            
+            @media (min-width: 1024px) {
+                grid-column: 1 / 4;
+                grid-row: 3 / span 3;
+                
+                .body-text {
+                    margin-bottom: 0;
+                }
+        
+                .lead {
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+            }
+        
+        }
+    }
 }
 
 @container hero (min-width: 1024px) {

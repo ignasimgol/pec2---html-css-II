@@ -52,7 +52,7 @@
         background-color: $off-white;
         border: none;
         border-radius: 0.5rem; // Estilo Bootstrap
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px $black-transparent-3;
 
         &:hover {
             transform: translateY(-5px);
@@ -72,7 +72,7 @@
         // Uso de :is() para seleccionar múltiples elementos con diferentes clases
         &:is(.highlighted, .featured) {
             border: 2px solid $primary-color;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px $black-transparent-3;
         }
     }
 
