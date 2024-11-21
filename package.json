@@ -10,7 +10,9 @@
     "dev": "npm-run-all clean parcel:serve",
     "build": "npm-run-all clean parcel:build",
     "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'",
-    "start": "parcel serve src/index.html --public-url / --dist-dir dist"
+    "start": "parcel serve src/index.html --public-url / --dist-dir dist",
+    "stylelint": "stylelint src/**/*.scss",
+    "stylelint:fix": "stylelint src/**/*.scss --fix"
   },
   "targets": {
     "web": {
@@ -43,7 +45,12 @@
     "postcss-preset-env": "^9.1.1",
     "posthtml-include": "^1.7.4",
     "rimraf": "^5.0.1",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "stylelint": "^16.10.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.10.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

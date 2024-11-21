@@ -1,8 +1,8 @@
 @import "../variables";
 
 .speakers-container {
-    container-type: inline-size;
     container-name: speakers;
+    container-type: inline-size;
 }
 
 .speakers {
@@ -10,9 +10,9 @@
 
     &__title {
         color: $text-color;
-        text-align: center;
-        margin-top: 2rem;
         margin-bottom: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
 
         // Aplicando pseudoclase :is() para los títulos de la sección
         &:is(.highlighted, .important) {
@@ -26,8 +26,8 @@
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: center;
-        max-width: 1200px; // Añadido para controlar el ancho máximo
         margin: 0 auto; // Centrar el grid
+        max-width: 1200px; // Añadido para controlar el ancho máximo
         
         @container speakers (min-width: 600px) {
             gap: 1.5rem;
@@ -41,19 +41,19 @@
         // Uso de :has() para aplicar estilos si contiene al menos un .speakers__card con la clase .featured
         &:has(.speakers__card.featured) {
             background-color: $highlight-bg;
-            padding: 2rem;
             border-radius: 0.5rem;
+            padding: 2rem;
         }
     }
 
     &__card {
-        flex: 1 1 100%;
-        max-width: 100%;
-        transition: transform 0.3s ease;
         background-color: $off-white;
         border: none;
         border-radius: 0.5rem; // Estilo Bootstrap
         box-shadow: 0 2px 4px $black-transparent-3;
+        flex: 1 1 100%;
+        max-width: 100%;
+        transition: transform 0.3s ease;
 
         &:hover {
             transform: translateY(-5px);
@@ -66,8 +66,8 @@
         
         @container speakers (min-width: 900px) {
             flex: 0 1 calc(33.33% - 1.5rem);
-            max-width: calc(33.33% - 1.5rem);
             margin-bottom: 2rem; // Asegurar espacio entre filas
+            max-width: calc(33.33% - 1.5rem);
         }
 
         // Uso de :is() para seleccionar múltiples elementos con diferentes clases
@@ -78,11 +78,11 @@
     }
 
     &__image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
         border-top-left-radius: 0.5rem; // Estilo Bootstrap
         border-top-right-radius: 0.5rem;
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
 
         // Aplicar un efecto si la tarjeta principal tiene una imagen destacada
         &:has(.speakers__card.featured &.important) {
@@ -96,21 +96,21 @@
         // Uso de :has() para aplicar estilos si contiene un enlace específico
         &:has(a.external-link) {
             background-color: $light-gray;
-            padding: 1.8rem;
             border: 1px dashed $dark-gray;
+            padding: 1.8rem;
         }
     }
 
     &__name {
         color: $primary-color;
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
         font-weight: 500; // Estilo Bootstrap
+        margin-bottom: 0.5rem;
 
         // Uso de :is() para estilizar elementos con variantes de texto
         &:is(.uppercase, .bold) {
-            text-transform: uppercase;
             font-weight: bold;
+            text-transform: uppercase;
         }
     }
 

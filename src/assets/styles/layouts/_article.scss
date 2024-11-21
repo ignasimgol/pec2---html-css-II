@@ -1,18 +1,18 @@
 @import "../variables";
 
 body {
-    container-type: inline-size;
     container-name: body;
+    container-type: inline-size;
 }
 
 
 .article-container {
-    container-type: inline-size;
     container-name: article;
-    max-width: 1200px;
+    container-type: inline-size;
     margin: 0 auto;
-    width: 100%;
-    padding: 2rem; 
+    max-width: 1200px;
+    padding: 2rem;
+    width: 100%; 
 }
 
 @container body (min-width: 768px) {
@@ -29,22 +29,22 @@ body {
     }
 
     &__hero {
-        background-image: url('../images/art1.jpg'); 
+        background-image: url('../images/art1.jpg');
+        background-position: center; 
         background-size: cover;
-        background-position: center;
+        margin: -2rem calc(-50vw + 50%) 2rem;
         padding: 6rem 0;
-        margin: -2rem calc(-50vw + 50%) 2rem; 
+        position: relative; 
         width: 100vw;
-        position: relative;
 
         &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            background: rgba(0, 0, 0, 0.5);
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); 
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0; 
         }
     }
 
@@ -73,26 +73,26 @@ body {
 
     &__lead-container {
         display: grid;
-        grid-template-columns: 1fr 2fr;
         gap: 2rem;
+        grid-template-columns: 1fr 2fr;
         margin-bottom: 3rem;
         max-width: 100%;
 
         @container article (max-width: 768px) {
-            grid-template-columns: 1fr;
             gap: 1rem;
+            grid-template-columns: 1fr;
         }
     }
 
     &__lead {
+        color: $dark-gray;
         font-size: 1.1rem;
         line-height: 1.6;
-        color: $dark-gray;
         margin: 0;
 
-        &--highlight {
-            font-size: 1.3rem; 
+        &--highlight { 
             color: $primary-color;
+            font-size: 1.3rem;
             font-weight: 600;
             line-height: 2.5; 
 
@@ -107,10 +107,10 @@ body {
     }
 
     &__image {
-        height: auto;
-        max-width: 600px;
         border-radius: 0.5rem;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        height: auto;
+        max-width: 600px;
         
         @container article (max-width: 600px) {
             width: 70% !important; 
@@ -118,10 +118,10 @@ body {
     }
 
     &__quote {
-        margin: 2rem 0;
-        padding: 2rem;
         background-color: $light-gray;
         border-left: 4px solid $primary-color;
+        margin: 2rem 0;
+        padding: 2rem;
 
         p {
             font-size: 1.25rem;
@@ -142,21 +142,21 @@ body {
 
 
 
-    &--features {
-        border-top: none;   
-        border-bottom: none; 
-        padding-top: 0;      
-        padding-bottom: 0;
+    &--features {   
+        border-bottom: none;
+        border-top: none;      
+        padding-bottom: 0; 
+        padding-top: 0;
 
         :is(li) {
-            padding-left: 2rem;
             margin-bottom: 1rem;
+            padding-left: 2rem;
             
             &::before {
-                content: "→";
                 background: none;
-                width: auto;
+                content: "→";
                 height: auto;
+                width: auto;
             }
 
             &::after {

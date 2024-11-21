@@ -1,60 +1,60 @@
 @import "../variables";
 
-.article__list  {
-    list-style: none;
-    padding-left: 0;
+.article__list  {    
+    border-bottom: 1px solid $dark-gray;
+    border-top: 1px solid $dark-gray;
     counter-reset: item-counter;
-    border-top: 1px solid $dark-gray;    
-    border-bottom: 1px solid $dark-gray;  
-    padding-top: 1.5rem;                     
-    padding-bottom: 1.5rem;   
+    list-style: none;                     
+    padding-bottom: 1.5rem;
+    padding-left: 0;  
+    padding-top: 1.5rem;   
 
     &-title {
         color: $primary-color;
         font-size: 1.3rem;
-        margin-bottom: 0.5rem;
         font-weight: 500;
+        margin-bottom: 0.5rem;
     }
 
     &-text {
         color: $dark-gray;
-        margin: 0;
         line-height: 1.6;
+        margin: 0;
     }
 
     li {
-        position: relative;
-        padding-left: 4rem;
-        margin-bottom: 3rem;
         counter-increment: item-counter;
         font-size: 1rem;
         line-height: 1.6;
+        margin-bottom: 3rem;
+        padding-left: 4rem;
+        position: relative;
 
         &::before {
-            content: counter(item-counter);
-            position: absolute;
-            left: 0;
-            top: -0.25rem;
-            width: 3rem;
-            height: 3rem;
+            align-items: center;
             background-color: $light-gray;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: $primary-color;
-            font-weight: 500;
+            content: counter(item-counter);
+            display: flex;
             font-size: 1.5rem;
+            font-weight: 500;
+            height: 3rem;
+            justify-content: center;
+            left: 0;
+            position: absolute;
+            top: -0.25rem;
+            width: 3rem;
         }
 
         &:not(:last-child)::after {
+            background-color: $light-gray;
             content: '';
-            position: absolute;
+            height: 4rem;
             left: 1.5rem;
+            position: absolute;
             top: 6rem;
             width: 1px;
-            height: 4rem;
-            background-color: $light-gray;
         }
     }
 }
