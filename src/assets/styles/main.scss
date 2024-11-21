@@ -1,8 +1,7 @@
-// Importa las variables y personalizaciones antes de Bootstrap
 @import "variables";
 @import "custom";
 
-// Componentes personalizados
+
 @import "layouts/home";
 @import "layouts/speakers";
 @import "layouts/article";
@@ -12,5 +11,5 @@
 @import "components/list";
 @import "components/progress";
 
-// Importa Bootstrap después de definir las variables
+
 @import "bootstrap/scss/bootstrap";
